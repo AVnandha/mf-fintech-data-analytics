@@ -1,0 +1,77 @@
+Data Quality Summary
+
+All 10 raw CSV datasets were successfully loaded and inspected.
+
+1. Duplicate Check
+All 10 datasets were checked for duplicate rows.
+No duplicate rows were found.
+
+2. Missing Values
+The dataset 04_monthly_sip_inflows.csv contains 12 missing values
+in the yoy_growth_pct column. These occur in the initial months
+where year-over-year comparison is not available.
+
+The remaining datasets contain no missing values.
+
+3. AMFI Code Validation
+All 40 unique AMFI codes in fund_master were validated against
+nav_history.
+
+Fund master AMFI codes: 40
+NAV history AMFI codes: 40
+Missing AMFI codes: 0
+
+Validation result: PASS
+
+4. Fund Master Exploration
+Fund houses: 10
+Categories: Equity, Debt
+Sub-categories: 12
+Risk categories: Low, Moderate, Moderately High, High, Very High
+
+Risk category distribution:
+Moderate: 16
+High: 8
+Very High: 6
+Low: 6
+Moderately High: 4
+
+5. Live NAV API Validation
+The MFAPI endpoint for code 125497 was successfully accessed and
+3,182 NAV records were saved.
+
+Important observation:
+The API response identifies scheme code 125497 as
+"SBI SMALL CAP FUND - Direct Plan - Growth", while the project
+task description refers to code 125497 as "HDFC Top 100 Direct".
+
+The API response was retained as received and was not modified.
+
+6. Key Scheme NAV Ingestion
+NAV data was successfully fetched for five key schemes:
+
+SBI Bluechip: 3,326 records
+ICICI Bluechip: 3,398 records
+Nippon Large Cap: 3,389 records
+Axis Bluechip: 3,655 records
+Kotak Bluechip: 3,392 records
+
+Conclusion:
+The raw datasets are structurally valid and contain no duplicate
+rows. The only identified missing values are the 12 initial
+yoy_growth_pct values, which are expected because year-over-year
+comparison is unavailable.
+
+All AMFI codes were successfully validated.
+
+Raw source data was not modified during the inspection.
+
+Validation Status:
+- Data ingestion: PASS
+- Duplicate check: PASS
+- Missing-value review: PASS (12 expected YoY values)
+- AMFI code validation: PASS
+- Fund master exploration: PASS
+- Live NAV ingestion: PASS
+- Key scheme NAV ingestion: PASS
+- Raw data integrity: PASS
